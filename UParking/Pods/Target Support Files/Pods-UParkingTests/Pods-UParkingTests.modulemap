@@ -1,0 +1,6 @@
+framework module Pods_UParkingTests {
+  umbrella header "Pods-UParkingTests-umbrella.h"
+
+  export *
+  module * { export * }
+}
