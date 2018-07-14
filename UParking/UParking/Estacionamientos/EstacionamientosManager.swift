@@ -23,6 +23,9 @@ class EstacionamientosManager {
             let objects = snapshot.children.allObjects
             for object in objects {
                 if let areaItem = object as? DataSnapshot, let area = ParkingArea(snapshot: areaItem) {
+                    if self.filteredByTypeAreas[area.type] == nil {
+                        self.filteredByTypeAreas[area.type] = Array()
+                    }
                     self.filteredByTypeAreas[area.type]?.append(area)
                 }
             }

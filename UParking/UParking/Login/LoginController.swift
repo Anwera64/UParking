@@ -13,7 +13,7 @@ class LoginController: UIViewController {
     @IBOutlet weak var codeView: UITextField!
     @IBOutlet weak var passwordView: UITextField!
 
-    override func viewDidLoad() {
+    override func viewDidAppear(_ animated: Bool) {
         if DataStorageManager().fetchUser() != nil {
             onLogin()
         }
