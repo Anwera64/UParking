@@ -32,8 +32,30 @@ class EstacionamientosManager {
             self.delegate.setParkingAreas(with: self.filteredByTypeAreas)
         })
     }
+    
+    public func getImage(with urlString: String, at index: IndexPath) {
+        guard let url = URL(string: urlString) else {
+            print("Invalid url")
+            return
+        }
+        
+        URLSession(configuration: .default).dataTask(with: url, completionHandler: { (data, response, error) in
+            if error != nil {
+                print(error!.localizedDescription)
+                return
+            }
+            
+            if let d = data, let image = UIImage(data: d) {
+                DispatchQueue.main.async {
+                    self.delegate.imageReady(with: image, at: index)
+                }
+            }
+        }).resume()
+    }
 }
 
 protocol EstacionamientosDelegate {
     func setParkingAreas(with areas: [String: [ParkingArea]])
+    
+    func imageReady(with image: UIImage, at index: IndexPath)
 }

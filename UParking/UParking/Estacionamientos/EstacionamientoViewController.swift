@@ -11,7 +11,7 @@ import UIKit
 struct ResumedData {
     var title: String
     var numbers: Int
-    var imageURL: String
+    var imageURL: String?
 }
 
 class EstacionamientoViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, EstacionamientosDelegate {
@@ -49,6 +49,9 @@ class EstacionamientoViewController: UIViewController, UITableViewDelegate, UITa
         cell.titleView.text = resumedData[indexPath.row].title
         cell.freeSpacesView.text = String(resumedData[indexPath.row].numbers)
         //FALTA IMAGEN
+        if let urlString = resumedData[indexPath.row].imageURL {
+            manager.getImage(with: urlString, at: indexPath)
+        }
         return cell
     }
     
@@ -62,7 +65,7 @@ class EstacionamientoViewController: UIViewController, UITableViewDelegate, UITa
             cont = areas.count
             areas.forEach { (area) in
                 let title = area.key
-                let imageURL = ""
+                let imageURL = area.value.first?.imgAreaTypeURLString
                 var counterFreeSpaces = 0
                 area.value.forEach { (parkingArea) in
                     parkingArea.items.forEach({ (space) in
@@ -79,6 +82,11 @@ class EstacionamientoViewController: UIViewController, UITableViewDelegate, UITa
             cont = 0
         }
         tableView.reloadData()
+    }
+    
+    func imageReady(with image: UIImage, at index: IndexPath) {
+        let cell = tableView.cellForRow(at: index) as! EstacionamientosTableViewCell
+        cell.imageParkingView.image = image
     }
 }
 

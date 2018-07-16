@@ -10,7 +10,7 @@ import UIKit
 
 class EstacionamientosTableViewCell: UITableViewCell {
     
-    @IBOutlet weak var ImageParking: UIImageView!
+    @IBOutlet weak var imageParkingView: UIImageView!
     @IBOutlet weak var titleView: UILabel!
     @IBOutlet weak var freeSpacesView: UILabel!
 

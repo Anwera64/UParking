@@ -13,11 +13,15 @@ class ParkingArea: Codable {
     var name: String
     var items: [ParkingSpace]
     var type: String
+    var imgURLString: String?
+    var imgAreaTypeURLString: String?
     
-    init(name: String, with items: [ParkingSpace], at area: String) {
+    init(name: String, with items: [ParkingSpace], at area: String, imgURl: String, imgTypeAreaURL: String) {
         self.name = name
         self.items = items
         self.type = area
+        self.imgURLString = imgURl
+        self.imgAreaTypeURLString = imgTypeAreaURL
     }
     
     init?(snapshot: DataSnapshot) {
@@ -28,6 +32,8 @@ class ParkingArea: Codable {
                 return nil
         }
         
+        self.imgURLString = value["urlImagen"] as? String
+        self.imgAreaTypeURLString = value["urlImagenTipoArea"] as? String
         self.name = name
         self.type = type
         self.items = Array()

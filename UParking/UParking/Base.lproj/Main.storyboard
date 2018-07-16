@@ -175,24 +175,24 @@
                                 <color key="backgroundColor" white="0.0" alpha="0.052493578767123288" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="areaCell" rowHeight="179" id="n6n-16-dnm" customClass="EstacionamientosTableViewCell" customModule="UParking" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="311" height="179"/>
+                                    <tableViewCell opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="areaCell" rowHeight="201" id="n6n-16-dnm" customClass="EstacionamientosTableViewCell" customModule="UParking" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="311" height="201"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="n6n-16-dnm" id="kzE-yg-dGa">
-                                            <rect key="frame" x="0.0" y="0.0" width="311" height="179"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="311" height="201"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="dqa-zm-Cwg">
-                                                    <rect key="frame" x="0.0" y="0.0" width="311" height="147"/>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ULIMA logo white" translatesAutoresizingMaskIntoConstraints="NO" id="dqa-zm-Cwg">
+                                                    <rect key="frame" x="0.0" y="0.0" width="311" height="169"/>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Titulo" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xEP-Qv-rTE">
-                                                    <rect key="frame" x="6" y="153" width="43" height="17"/>
+                                                    <rect key="frame" x="6" y="175" width="43" height="17"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <stackView opaque="NO" contentMode="scaleToFill" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="ESn-bv-deS">
-                                                    <rect key="frame" x="182.33333333333334" y="153" width="122.66666666666666" height="17"/>
+                                                    <rect key="frame" x="182.33333333333334" y="175" width="122.66666666666666" height="17"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sitios Libres:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8CN-3P-cXJ">
                                                             <rect key="frame" x="0.0" y="0.0" width="98" height="17"/>
@@ -220,14 +220,14 @@
                                                 <constraint firstItem="ESn-bv-deS" firstAttribute="top" secondItem="dqa-zm-Cwg" secondAttribute="bottom" constant="6" id="aDN-8n-yBd"/>
                                                 <constraint firstItem="dqa-zm-Cwg" firstAttribute="leading" secondItem="kzE-yg-dGa" secondAttribute="leading" id="i7C-GN-Xh8"/>
                                                 <constraint firstAttribute="bottom" secondItem="xEP-Qv-rTE" secondAttribute="bottom" constant="9" id="vMc-6E-2Kd"/>
-                                                <constraint firstItem="ESn-bv-deS" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="xEP-Qv-rTE" secondAttribute="trailing" constant="120" id="vgl-vE-GvN"/>
+                                                <constraint firstItem="ESn-bv-deS" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="xEP-Qv-rTE" secondAttribute="trailing" constant="32" id="vgl-vE-GvN"/>
                                                 <constraint firstAttribute="bottom" secondItem="ESn-bv-deS" secondAttribute="bottom" constant="9" id="wMZ-ff-0Dc"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <connections>
-                                            <outlet property="ImageParking" destination="dqa-zm-Cwg" id="YPv-aO-yzO"/>
                                             <outlet property="freeSpacesView" destination="4gY-d6-gZG" id="yKd-HB-Zpd"/>
+                                            <outlet property="imageParkingView" destination="dqa-zm-Cwg" id="YPv-aO-yzO"/>
                                             <outlet property="titleView" destination="xEP-Qv-rTE" id="g2N-N8-bba"/>
                                         </connections>
                                     </tableViewCell>
