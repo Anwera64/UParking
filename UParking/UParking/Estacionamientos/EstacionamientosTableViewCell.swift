@@ -8,7 +8,10 @@
 
 import UIKit
 
-class EstacionamientosTableViewCell: UITableViewCell {
+class EstacionamientosTableViewCell: UICollectionViewCell {
+    
+    
+    static public let identifier = "EstacionamientosTableViewCell"
     
     @IBOutlet weak var imageParkingView: UIImageView!
     @IBOutlet weak var titleView: UILabel!

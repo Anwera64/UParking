@@ -19,11 +19,12 @@
 		3A77A49820F7DDB400ED924C /* User+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A77A49620F7DDB400ED924C /* User+CoreDataProperties.swift */; };
 		3A77A49A20F7DF2900ED924C /* DSM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A77A49920F7DF2900ED924C /* DSM.swift */; };
 		3A77A49C20F83AC300ED924C /* EstacionamientosTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A77A49B20F83AC300ED924C /* EstacionamientosTableViewCell.swift */; };
+		3A791B2720FD22410055F18D /* EstacionamientoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A791B2620FD22410055F18D /* EstacionamientoViewController.swift */; };
 		3A7CC16220F9428F006B77E2 /* EstacionamientosManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A7CC16120F9428F006B77E2 /* EstacionamientosManager.swift */; };
 		3A7CC16520F943C9006B77E2 /* ParkingArea.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A7CC16420F943C9006B77E2 /* ParkingArea.swift */; };
 		3A7CC16720F944AE006B77E2 /* ParkingSpace.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A7CC16620F944AE006B77E2 /* ParkingSpace.swift */; };
 		3A841C0520F553AD00347599 /* AlertUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A841C0420F553AD00347599 /* AlertUtils.swift */; };
-		3A841C0820F5554B00347599 /* EstacionamientoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A841C0720F5554B00347599 /* EstacionamientoViewController.swift */; };
+		3A841C0820F5554B00347599 /* EstacionamientosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A841C0720F5554B00347599 /* EstacionamientosViewController.swift */; };
 		3A841C0C20F555ED00347599 /* PerfilViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A841C0B20F555ED00347599 /* PerfilViewController.swift */; };
 		3A841C1020F5625700347599 /* Data.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3A841C0E20F5625700347599 /* Data.xcdatamodeld */; };
 		7A127A6628E343A5CC75287E /* Pods_UParkingTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 766EF28592B7D226A6815806 /* Pods_UParkingTests.framework */; };
@@ -71,11 +72,12 @@
 		3A77A49620F7DDB400ED924C /* User+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "User+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		3A77A49920F7DF2900ED924C /* DSM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DSM.swift; sourceTree = "<group>"; };
 		3A77A49B20F83AC300ED924C /* EstacionamientosTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EstacionamientosTableViewCell.swift; sourceTree = "<group>"; };
+		3A791B2620FD22410055F18D /* EstacionamientoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EstacionamientoViewController.swift; sourceTree = "<group>"; };
 		3A7CC16120F9428F006B77E2 /* EstacionamientosManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EstacionamientosManager.swift; sourceTree = "<group>"; };
 		3A7CC16420F943C9006B77E2 /* ParkingArea.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParkingArea.swift; sourceTree = "<group>"; };
 		3A7CC16620F944AE006B77E2 /* ParkingSpace.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParkingSpace.swift; sourceTree = "<group>"; };
 		3A841C0420F553AD00347599 /* AlertUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertUtils.swift; sourceTree = "<group>"; };
-		3A841C0720F5554B00347599 /* EstacionamientoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EstacionamientoViewController.swift; sourceTree = "<group>"; };
+		3A841C0720F5554B00347599 /* EstacionamientosViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EstacionamientosViewController.swift; sourceTree = "<group>"; };
 		3A841C0B20F555ED00347599 /* PerfilViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PerfilViewController.swift; sourceTree = "<group>"; };
 		3A841C0F20F5625700347599 /* Data.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Data.xcdatamodel; sourceTree = "<group>"; };
 		45F3A5FAA1FE49F0E60E88D7 /* Pods_UParkingUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_UParkingUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -188,6 +190,14 @@
 			path = Login;
 			sourceTree = "<group>";
 		};
+		3A791B2520FD21D50055F18D /* Estacionamiento */ = {
+			isa = PBXGroup;
+			children = (
+				3A791B2620FD22410055F18D /* EstacionamientoViewController.swift */,
+			);
+			path = Estacionamiento;
+			sourceTree = "<group>";
+		};
 		3A7CC16320F943BA006B77E2 /* Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -208,7 +218,8 @@
 		3A841C0620F5553100347599 /* Estacionamientos */ = {
 			isa = PBXGroup;
 			children = (
-				3A841C0720F5554B00347599 /* EstacionamientoViewController.swift */,
+				3A791B2520FD21D50055F18D /* Estacionamiento */,
+				3A841C0720F5554B00347599 /* EstacionamientosViewController.swift */,
 				3A77A49B20F83AC300ED924C /* EstacionamientosTableViewCell.swift */,
 				3A7CC16120F9428F006B77E2 /* EstacionamientosManager.swift */,
 			);
@@ -472,8 +483,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3A841C0820F5554B00347599 /* EstacionamientoViewController.swift in Sources */,
+				3A841C0820F5554B00347599 /* EstacionamientosViewController.swift in Sources */,
 				3A841C1020F5625700347599 /* Data.xcdatamodeld in Sources */,
+				3A791B2720FD22410055F18D /* EstacionamientoViewController.swift in Sources */,
 				3A7CC16720F944AE006B77E2 /* ParkingSpace.swift in Sources */,
 				3A00A52020F3E9CF00F258B9 /* LoginController.swift in Sources */,
 				3A7CC16220F9428F006B77E2 /* EstacionamientosManager.swift in Sources */,

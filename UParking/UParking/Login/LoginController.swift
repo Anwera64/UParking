@@ -36,7 +36,7 @@ class LoginController: UIViewController {
         
         let perfilViewController = storyboard.instantiateViewController(withIdentifier: PerfilViewController.ID) as! PerfilViewController
         perfilViewController.tabBarItem.title = "Perfil"
-        let estacionamientosViewController = storyboard.instantiateViewController(withIdentifier: EstacionamientoViewController.ID) as! EstacionamientoViewController
+        let estacionamientosViewController = storyboard.instantiateViewController(withIdentifier: EstacionamientosViewController.identifier) as! EstacionamientosViewController
         estacionamientosViewController.navigationItem.title = "Estacionamientos"
         estacionamientosViewController.mode = 1
         

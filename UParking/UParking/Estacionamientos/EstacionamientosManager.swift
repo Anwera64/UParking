@@ -12,7 +12,7 @@ import FirebaseDatabase
 class EstacionamientosManager {
     public var delegate: EstacionamientosDelegate!
     private let rootRef = Database.database().reference()
-    private var filteredByTypeAreas = [String: [ParkingArea]]()
+    public var filteredByTypeAreas = [String: [ParkingArea]]()
     
     init(with delegate: EstacionamientosDelegate) {
         self.delegate = delegate
