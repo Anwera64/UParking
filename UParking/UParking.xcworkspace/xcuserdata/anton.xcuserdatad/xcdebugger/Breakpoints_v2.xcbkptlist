@@ -22,11 +22,11 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "UParking/Estacionamientos/EstacionamientosViewController.swift"
-            timestampString = "553554205.4448071"
+            timestampString = "553555844.716644"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "34"
@@ -38,11 +38,11 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "UParking/Estacionamientos/EstacionamientosManager.swift"
-            timestampString = "553548511.523284"
+            timestampString = "553555844.7166981"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "22"
@@ -54,11 +54,11 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "UParking/Estacionamientos/EstacionamientosManager.swift"
-            timestampString = "553548511.523609"
+            timestampString = "553555844.716741"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "25"
@@ -70,11 +70,11 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "UParking/Estacionamientos/EstacionamientosManager.swift"
-            timestampString = "553548563.596962"
+            timestampString = "553555844.716779"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "23"
@@ -83,14 +83,14 @@
             landmarkType = "7">
             <Locations>
                <Location
-                  shouldBeEnabled = "Yes"
+                  shouldBeEnabled = "No"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
                   symbolName = "UParking.EstacionamientosManager.getParkingSpaces() -&gt; ()"
                   moduleName = "UParking"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/anton/Documents/Projects%20Android/UParkingGIT/UParking/UParking/Estacionamientos/EstacionamientosManager.swift"
-                  timestampString = "553548563.80949"
+                  timestampString = "553555189.187014"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "23"
@@ -98,14 +98,14 @@
                   offsetFromSymbolStart = "195">
                </Location>
                <Location
-                  shouldBeEnabled = "Yes"
+                  shouldBeEnabled = "No"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
                   symbolName = "closure #1 (__ObjC.DataSnapshot) -&gt; () in UParking.EstacionamientosManager.getParkingSpaces() -&gt; ()"
                   moduleName = "UParking"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/anton/Documents/Projects%20Android/UParkingGIT/UParking/UParking/Estacionamientos/EstacionamientosManager.swift"
-                  timestampString = "553548563.811213"
+                  timestampString = "553555189.189327"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "24"
@@ -113,6 +113,22 @@
                   offsetFromSymbolStart = "26">
                </Location>
             </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "UParking/Estacionamientos/EstacionamientosManager.swift"
+            timestampString = "553555844.7168159"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "24"
+            endingLineNumber = "24"
+            landmarkName = "getParkingSpaces()"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

@@ -13,12 +13,13 @@ import UIKit
 class ParkingSpaceNotifierUtil {
     
     private var rootRef = Database.database().reference()
-    private var handle: UInt!
+    private var spaceRef: DatabaseReference!
     private var space: String!
     private var arrived: Bool = false {
         didSet {
             if arrived {
-                rootRef.removeObserver(withHandle: handle)
+                spaceRef.removeAllObservers()
+                DataStorageManager().removeReserve()
                 if let controller = UIApplication.shared.keyWindow?.rootViewController?.topMostViewController() {
                     let alert = AlertUtil.welcomeAlert(title: "Bienvenido", detail: "Has llegado a tu reserva", closure: publishComplaint)
                     controller.present(alert, animated: true)
@@ -26,7 +27,7 @@ class ParkingSpaceNotifierUtil {
             }
         }
     }
-
+    
     public func hasReserved() {
         guard let user = DataStorageManager().fetchUser(), let occupiedSpace = user.occupiedSpace else {
             print("usuario invalido en notificacion")
@@ -34,7 +35,8 @@ class ParkingSpaceNotifierUtil {
         }
         
         let route = String(occupiedSpace.suffix(occupiedSpace.count - 45))
-        handle = rootRef.child(route).observe(.value, with: { snapshot in
+        spaceRef = rootRef.child(route)
+        spaceRef!.observe(.value, with: { snapshot in
             guard let space: ParkingSpace = ParkingSpace(snapshot: snapshot, id: nil) else {
                 print("Wrong space item. Returns nil")
                 return
@@ -51,6 +53,12 @@ class ParkingSpaceNotifierUtil {
         values["space"] = space
         
         complaintsRef.childByAutoId().updateChildValues(values)
+        
+        //Borrar usuario y limpieza ya que el sitio es ocupado por otra persona
+        let spaceRef = rootRef.child(space)
+        spaceRef.child("limpieza").removeValue()
+        spaceRef.child("reservado").removeValue()
+        spaceRef.child("usuario").removeValue()
     }
 }
 

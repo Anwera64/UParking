@@ -49,6 +49,14 @@ class DataStorageManager {
         }
     }
     
+    public func removeReserve() {
+        let user = fetchUser()!
+        context?.perform {
+            user.occupiedSpace = nil
+            try! self.context?.save()
+        }
+    }
+    
     public func fetchUser() -> User? {
         let fetchRequest: NSFetchRequest<User> = User.fetchRequest()
         
