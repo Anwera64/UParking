@@ -34,7 +34,6 @@ class EstacionamientosViewController: UIViewController, UICollectionViewDataSour
         manager.getParkingSpaces()
         collectionView.dataSource = self
         collectionView.delegate = self
-        
     }
     
     override func viewWillLayoutSubviews() {
@@ -110,7 +109,7 @@ class EstacionamientosViewController: UIViewController, UICollectionViewDataSour
                 var counterFreeSpaces = 0
                 area.value.forEach { (parkingArea) in
                     parkingArea.items.forEach({ (space) in
-                        if !space.occupied { counterFreeSpaces += 1 }
+                        if !space.occupied || !(space.reserved != nil ? space.reserved! : true){ counterFreeSpaces += 1 }
                     })
                 }
                 resumedData.append(ResumedData(title: title, numbers: counterFreeSpaces, imageURL: imageURL))
@@ -121,7 +120,7 @@ class EstacionamientosViewController: UIViewController, UICollectionViewDataSour
                 let imageURL = area.imgURLString
                 var counterFreeSpaces = 0
                 area.items.forEach({ (space) in
-                    if !space.occupied { counterFreeSpaces += 1 }
+                    if !space.occupied || !(space.reserved != nil ? space.reserved! : true) { counterFreeSpaces += 1 }
                 })
                 resumedData.append(ResumedData(title: title, numbers: counterFreeSpaces, imageURL: imageURL))
             })
