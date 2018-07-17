@@ -19,7 +19,7 @@ class EstacionamientosTableViewCell: UICollectionViewCell {
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        self.layer.cornerRadius = self.frame.height / 0.5
+        self.layer.cornerRadius = self.frame.height / 15
         self.layer.masksToBounds = true
     }
 

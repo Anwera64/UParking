@@ -47,7 +47,7 @@ class ParkingSpaceView: UIView, ParkingSpaceViewDelegate {
         let view = SpaceView(frame: CGRect(x: x + horizontalPadding + (width+horizontalPadding/2) * CGFloat(i), y: y + verticalPadding, width: width, height: height))
         view.backgroundColor = UIColor(white: 1, alpha: 0.0)
         view.layer.borderWidth = 1
-        view.layer.cornerRadius = view.frame.height / 0.5
+        view.layer.cornerRadius = view.frame.height / 15
         view.layer.masksToBounds = true
         view.layer.borderColor = UIColor.blue.cgColor
         view.addGesture()
