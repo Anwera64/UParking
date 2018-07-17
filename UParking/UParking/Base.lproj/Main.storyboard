@@ -49,7 +49,7 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Api-FM-cXy">
                                         <rect key="frame" x="0.0" y="187.33333333333337" width="255" height="30"/>
                                         <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <state key="normal" title="Button">
+                                        <state key="normal" title="Entrar">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
                                         <connections>
@@ -82,6 +82,7 @@
                     </view>
                     <connections>
                         <outlet property="codeView" destination="9cZ-s8-ny0" id="U7t-J5-npC"/>
+                        <outlet property="loginButton" destination="Api-FM-cXy" id="7fQ-Yx-EhB"/>
                         <outlet property="passwordView" destination="eA1-wf-zrg" id="dsn-i3-zJQ"/>
                     </connections>
                 </viewController>

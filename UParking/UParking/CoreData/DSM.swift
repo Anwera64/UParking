@@ -46,6 +46,7 @@ class DataStorageManager {
         let user = fetchUser()!
         context?.performAndWait {
             self.context?.delete(user)
+            try! self.context?.save()
         }
     }
     
@@ -58,6 +59,16 @@ class DataStorageManager {
     }
     
     public func fetchUser() -> User? {
+        let result = fetchUsers()
+        
+        guard let object = result.first else {
+            print("No retorno objetos")
+            return nil
+        }
+        return object
+    }
+    
+    private func fetchUsers() -> [User] {
         let fetchRequest: NSFetchRequest<User> = User.fetchRequest()
         
         var result: [User] = Array()
@@ -65,11 +76,6 @@ class DataStorageManager {
         context?.performAndWait {
             result = try! fetchRequest.execute()
         }
-        
-        guard let object = result.first else {
-            print("No retorno objetos")
-            return nil
-        }
-        return object
+        return result
     }
 }

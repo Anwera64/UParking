@@ -12,7 +12,14 @@ class LoginController: UIViewController {
 
     @IBOutlet weak var codeView: UITextField!
     @IBOutlet weak var passwordView: UITextField!
-
+    @IBOutlet weak var loginButton: UIButton!
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        loginButton.layer.cornerRadius = loginButton.frame.height / 7
+        loginButton.layer.masksToBounds = true
+    }
+    
     override func viewDidAppear(_ animated: Bool) {
         if DataStorageManager().fetchUser() != nil {
             onLogin()
