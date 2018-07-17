@@ -14,7 +14,7 @@ class SpaceView: UILabel {
         didSet {
             changeColor()
         }}
-    private var selected = false {
+    public var selected = false {
         didSet {
             if selected {
                 layer.borderColor = UIColor.yellow.cgColor

@@ -62,6 +62,12 @@ class ParkingSpaceView: UIView, ParkingSpaceViewDelegate {
     
     func onSpaceSelected(over id: String) {
         delegate.onSpaceSelected(over: id)
+        spacesViews.filter { (space) -> Bool in
+            space.selected
+            }.forEach { (space) in
+                space.selected = false
+        }
+        spacesViews[Int(id)!-1].selected = true
     }
     
     func setOccupied(positionAt id: Int, occupied: Bool) {
