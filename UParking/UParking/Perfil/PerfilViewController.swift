@@ -22,10 +22,12 @@ class PerfilViewController: UIViewController {
         reservesView.text = String(user!.reserves)
         // Do any additional setup after loading the view.
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    
+    @IBAction func onLogout(_ sender: UIButton) {
+        DataStorageManager().logout()
+         let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let loginController = storyboard.instantiateInitialViewController()!
+        present(loginController, animated: true)
     }
     
 

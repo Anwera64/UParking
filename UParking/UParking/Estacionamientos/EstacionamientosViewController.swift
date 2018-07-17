@@ -34,6 +34,7 @@ class EstacionamientosViewController: UIViewController, UICollectionViewDataSour
         manager.getParkingSpaces()
         collectionView.dataSource = self
         collectionView.delegate = self
+        
     }
     
     override func viewWillLayoutSubviews() {
@@ -137,6 +138,10 @@ class EstacionamientosViewController: UIViewController, UICollectionViewDataSour
         }
         let cell = c as! EstacionamientosTableViewCell
         cell.imageParkingView.image = image
+    }
+    
+    deinit {
+        manager.destroyListeners()
     }
 }
 

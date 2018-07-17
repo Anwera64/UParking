@@ -16,5 +16,11 @@ class EstacionamientosTableViewCell: UICollectionViewCell {
     @IBOutlet weak var imageParkingView: UIImageView!
     @IBOutlet weak var titleView: UILabel!
     @IBOutlet weak var freeSpacesView: UILabel!
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        self.layer.cornerRadius = self.frame.height / 0.5
+        self.layer.masksToBounds = true
+    }
 
 }

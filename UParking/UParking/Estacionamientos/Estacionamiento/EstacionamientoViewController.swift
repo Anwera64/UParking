@@ -16,6 +16,7 @@ class EstacionamientoViewController: UIViewController, ParkingSpaceViewDelegate,
     var spaces: Int!
     var objectReference: DatabaseReference!
     var selectedSpace: Int?
+    var mobileUser: User = DataStorageManager().fetchUser()!
     private var manager: EstacionamientoManager!
     
     @IBOutlet weak var unusedReservesView: UILabel!
@@ -30,6 +31,7 @@ class EstacionamientoViewController: UIViewController, ParkingSpaceViewDelegate,
         // Do any additional setup after loading the view.
         spacesBackgroundView.spaces = spaces
         spacesBackgroundView.delegate = self
+        unusedReservesView.text = "Reservas restantes para esta semana: \(mobileUser.reserves)"
         manager = EstacionamientoManager(objectReference: objectReference, delegate: self)
         manager.getSpaces()
     }
@@ -45,15 +47,25 @@ class EstacionamientoViewController: UIViewController, ParkingSpaceViewDelegate,
             return
         }
         
+        guard mobileUser.reserves > 0 else {
+            print("usuario sin reservas")
+            let alert = AlertUtil.simpleAlert(title: "Advertencia", detail: "No tienes mas reservas restantes para esta semana.")
+            self.present(alert, animated: true)
+            return
+        }
+        
+        guard mobileUser.occupiedSpace == nil else {
+            print("usuario con reserva en curso")
+            let alert = AlertUtil.simpleAlert(title: "Advertencia", detail: "Ya tienes una reserva en efecto en estos momentos. Solo se acepta 1 reserva a la vez.")
+            self.present(alert, animated: true)
+            return
+        }
+        
         let cleaning = cleaningSwitchView.isOn
         var user: String
         if invitedSwitchView.isOn, let txt = invitedDocTextField.text {
             user = txt
         } else {
-            guard let mobileUser = DataStorageManager().fetchUser() else {
-                print("usuario invalido")
-                return
-            }
             user = mobileUser.uid!
         }
         manager.reserveSpace(space: ParkingSpace(occupied: false, cleaning: cleaning, by: user, pos: number-1, reserved: true))

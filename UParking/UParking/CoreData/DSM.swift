@@ -36,8 +36,16 @@ class DataStorageManager {
         let user = fetchUser()
         context?.performAndWait {
             user!.occupiedSpace = space
+            user!.reserves -= 1
             try! self.context!.save()
-            ParkingSpaceNotifierUtil.hasArrived()
+            ParkingSpaceNotifierUtil().hasReserved()
+        }
+    }
+    
+    public func logout() {
+        let user = fetchUser()!
+        context?.performAndWait {
+            self.context?.delete(user)
         }
     }
     
