@@ -8,17 +8,19 @@
 
 import Foundation
 import FirebaseDatabase
+import UIKit
 
 class ParkingSpaceNotifierUtil {
     
     private var rootRef = Database.database().reference()
     private var handle: UInt!
+    private var space: String!
     private var arrived: Bool = false {
         didSet {
             if arrived {
                 rootRef.removeObserver(withHandle: handle)
                 if let controller = UIApplication.shared.keyWindow?.rootViewController?.topMostViewController() {
-                    let alert = AlertUtil.simpleAlert(title: "Bienvenido", detail: "Has llegado a tu reserva")
+                    let alert = AlertUtil.welcomeAlert(title: "Bienvenido", detail: "Has llegado a tu reserva", closure: publishComplaint)
                     controller.present(alert, animated: true)
                 }
             }
@@ -39,6 +41,16 @@ class ParkingSpaceNotifierUtil {
             }
             self.arrived = space.occupied
         })
+        space = route
+    }
+    
+    public func publishComplaint(_: UIAlertAction) -> Void {
+        let complaintsRef = rootRef.child("Complaints")
+        var values: [String: Any] = Dictionary()
+        values["date"] = Date().description
+        values["space"] = space
+        
+        complaintsRef.childByAutoId().updateChildValues(values)
     }
 }
 

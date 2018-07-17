@@ -17,4 +17,13 @@ class AlertUtil {
         alert.addAction(action)
         return alert
     }
+    
+    static func welcomeAlert(title: String, detail: String, closure: @escaping (UIAlertAction) -> Void) -> UIAlertController {
+        let alert = UIAlertController(title: title, message: detail, preferredStyle: .alert)
+        let action = UIAlertAction(title: "Gracias", style: .cancel)
+        let actionComplaint = UIAlertAction(title: "No soy yo", style: .default, handler: closure)
+        alert.addAction(action)
+        alert.addAction(actionComplaint)
+        return alert
+    }
 }
