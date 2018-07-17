@@ -34,13 +34,17 @@ class EstacionamientoViewController: UIViewController, ParkingSpaceViewDelegate,
         manager.getSpaces()
     }
     
+    //Al hacer click en el boton de reserva se ejecuta esta funcion.
+    //Crea un ParkingSpace a partir de la informacion brindada por el usuario y lo pasa al manager.
     @IBAction func onReserve(_ sender: UIButton) {
+        
         guard let number = selectedSpace else {
             print("no selected space")
             let alert = AlertUtil.simpleAlert(title: "Advertencia", detail: "Tienes que seleccionar un espacio para reservar")
             self.present(alert, animated: true)
             return
         }
+        
         let cleaning = cleaningSwitchView.isOn
         var user: String
         if invitedSwitchView.isOn, let txt = invitedDocTextField.text {
@@ -52,7 +56,7 @@ class EstacionamientoViewController: UIViewController, ParkingSpaceViewDelegate,
             }
             user = mobileUser.uid!
         }
-        manager.reserveSpace(space: ParkingSpace(occupied: true, cleaning: cleaning, by: user, pos: number-1))
+        manager.reserveSpace(space: ParkingSpace(occupied: false, cleaning: cleaning, by: user, pos: number-1, reserved: true))
         navigationController?.popViewController(animated: true)
     }
     
@@ -71,7 +75,8 @@ class EstacionamientoViewController: UIViewController, ParkingSpaceViewDelegate,
     
     func setSpaces(with spaces: [ParkingSpace]) {
         spaces.forEach { (space) in
-            spacesBackgroundView.setOccupied(positionAt: space.pos, occupied: space.occupied)
+            let situation = space.occupied || (space.reserved != nil ? space.reserved! : false)
+            spacesBackgroundView.setOccupied(positionAt: space.pos, occupied: situation)
         }
     }
     

@@ -15,6 +15,7 @@
 		3A00A53320F3E9D000F258B9 /* UParkingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A00A53220F3E9D000F258B9 /* UParkingTests.swift */; };
 		3A00A53E20F3E9D000F258B9 /* UParkingUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A00A53D20F3E9D000F258B9 /* UParkingUITests.swift */; };
 		3A00A54E20F3F54000F258B9 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3A00A54D20F3F54000F258B9 /* GoogleService-Info.plist */; };
+		3A6B387120FE49BA0016E30D /* ParkingSpaceNotifierUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A6B387020FE49BA0016E30D /* ParkingSpaceNotifierUtil.swift */; };
 		3A77A49720F7DDB400ED924C /* User+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A77A49520F7DDB400ED924C /* User+CoreDataClass.swift */; };
 		3A77A49820F7DDB400ED924C /* User+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A77A49620F7DDB400ED924C /* User+CoreDataProperties.swift */; };
 		3A77A49A20F7DF2900ED924C /* DSM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A77A49920F7DF2900ED924C /* DSM.swift */; };
@@ -71,6 +72,7 @@
 		3A00A53D20F3E9D000F258B9 /* UParkingUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UParkingUITests.swift; sourceTree = "<group>"; };
 		3A00A53F20F3E9D100F258B9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3A00A54D20F3F54000F258B9 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		3A6B387020FE49BA0016E30D /* ParkingSpaceNotifierUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParkingSpaceNotifierUtil.swift; sourceTree = "<group>"; };
 		3A77A49520F7DDB400ED924C /* User+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "User+CoreDataClass.swift"; sourceTree = "<group>"; };
 		3A77A49620F7DDB400ED924C /* User+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "User+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		3A77A49920F7DF2900ED924C /* DSM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DSM.swift; sourceTree = "<group>"; };
@@ -228,6 +230,7 @@
 			isa = PBXGroup;
 			children = (
 				3A841C0420F553AD00347599 /* AlertUtils.swift */,
+				3A6B387020FE49BA0016E30D /* ParkingSpaceNotifierUtil.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -503,6 +506,7 @@
 				3A841C0820F5554B00347599 /* EstacionamientosViewController.swift in Sources */,
 				3A791B2C20FD4CE20055F18D /* SpaceView.swift in Sources */,
 				3A841C1020F5625700347599 /* Data.xcdatamodeld in Sources */,
+				3A6B387120FE49BA0016E30D /* ParkingSpaceNotifierUtil.swift in Sources */,
 				3A791B2720FD22410055F18D /* EstacionamientoViewController.swift in Sources */,
 				3A791B2A20FD2D400055F18D /* ParkingSpaceView.swift in Sources */,
 				3A7CC16720F944AE006B77E2 /* ParkingSpace.swift in Sources */,

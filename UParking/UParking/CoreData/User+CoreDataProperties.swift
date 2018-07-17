@@ -20,6 +20,6 @@ extension User {
     @NSManaged public var parked: Bool 
     @NSManaged public var reserves: Int32
     @NSManaged public var uid: String?
-    @NSManaged public var occupiedSpace: String?
+    @NSManaged public var occupiedSpace: String? 
 
 }

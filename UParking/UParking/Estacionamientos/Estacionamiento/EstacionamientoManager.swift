@@ -15,6 +15,7 @@ class EstacionamientoManager {
     private let rootRef: DatabaseReference
     private let delegate: EstacionamientoDelegate
     var spaces: [ParkingSpace] = []
+    let dsm = DataStorageManager()
     
     init(objectReference: DatabaseReference, delegate: EstacionamientoDelegate) {
         self.rootRef = objectReference
@@ -39,10 +40,11 @@ class EstacionamientoManager {
     func reserveSpace(space: ParkingSpace) {
         let spaceRef = rootRef.child("spaces/\(space.pos)")
         var values: [String: Any] = Dictionary()
-        values["ocupado"] = space.occupied
+        values["reservado"] = space.reserved
         values["usuario"] = space.user
         values["limpieza"] = space.cleaning
         spaceRef.updateChildValues(values)
+        dsm.saveSpace(space: spaceRef.ref.description())
     }
     
     func destroyListeners() {

@@ -14,14 +14,14 @@ class DataStorageManager {
     
     let context: NSManagedObjectContext? = {
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
-        print("")
-        return nil
+            print("")
+            return nil
         }
-       return appDelegate.persistentContainer.viewContext
+        return appDelegate.persistentContainer.viewContext
     }()
     
     public func saveUser(with id: String) {
-       
+        
         context?.perform {
             // guardar
             let user = User(context: self.context!)
@@ -32,17 +32,24 @@ class DataStorageManager {
         }
     }
     
+    public func saveSpace(space: String) {
+        let user = fetchUser()
+        context?.performAndWait {
+            user!.occupiedSpace = space
+            try! self.context!.save()
+            ParkingSpaceNotifierUtil.hasArrived()
+        }
+    }
+    
     public func fetchUser() -> User? {
         let fetchRequest: NSFetchRequest<User> = User.fetchRequest()
         
-        // TODO: - implementar throw
         var result: [User] = Array()
         
         context?.performAndWait {
             result = try! fetchRequest.execute()
         }
         
-        // TODO: - implementar throw
         guard let object = result.first else {
             print("No retorno objetos")
             return nil
