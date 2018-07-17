@@ -62,13 +62,28 @@ class EstacionamientosViewController: UIViewController, UICollectionViewDataSour
         switch mode {
         case 1:
             let title = resumedData[indexPath.row].title
-            if manager.filteredByTypeAreas[title]!.count > 1 {
-                let controller = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: EstacionamientosViewController.identifier) as! EstacionamientosViewController
-                controller.mode = 2
-                controller.areaType = title
-                controller.navigationItem.title = title
-                navigationController?.pushViewController(controller, animated: true)
+            let controller = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: EstacionamientosViewController.identifier) as! EstacionamientosViewController
+            controller.mode = 2
+            controller.areaType = title
+            controller.navigationItem.title = title
+            navigationController?.pushViewController(controller, animated: true)
+        case 2:
+            let controller = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: EstacionamientoViewController.identifier) as! EstacionamientoViewController
+            
+            //Buscamos el objeto ParkingArea por su nombre dentro del array de todas las areas filtradas por tipo
+            let cell = collectionView.cellForItem(at: indexPath) as! EstacionamientosTableViewCell
+            let title = cell.titleView.text!
+            guard let found = manager.filteredByTypeAreas[areaType]?.filter({ (area) -> Bool in
+                area.name == title
+            }).first else {
+                print("Did not find the right area somewhy")
+                return
             }
+            //Seteamos el tamaño correcto al view personalizado de los espacios para que este los pinte correctamente
+            controller.spaces = found.items.count
+            controller.objectReference = found.databaseReference
+            controller.navigationItem.title = title
+            navigationController?.pushViewController(controller, animated: true)
         default:
             break
         }
@@ -85,6 +100,7 @@ class EstacionamientosViewController: UIViewController, UICollectionViewDataSour
     }
     
     func setParkingAreas(with areas: [String: [ParkingArea]]) {
+        resumedData.removeAll()
         switch mode {
         case 1:
             areas.forEach { (area) in

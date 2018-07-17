@@ -19,15 +19,19 @@ class EstacionamientosManager {
     }
     
     public func getParkingSpaces() {
-        rootRef.child("Data").observeSingleEvent(of: .value, with: { (snapshot) in
+        let dataReference = rootRef.child("Data")
+        dataReference.observe(.value, with: { (snapshot) in
+            self.filteredByTypeAreas.removeAll()
             let objects = snapshot.children.allObjects
+            var counter = 0
             for object in objects {
-                if let areaItem = object as? DataSnapshot, let area = ParkingArea(snapshot: areaItem) {
+                if let areaItem = object as? DataSnapshot, let area = ParkingArea(snapshot: areaItem, reference: dataReference.child(String(counter))) {
                     if self.filteredByTypeAreas[area.type] == nil {
                         self.filteredByTypeAreas[area.type] = Array()
                     }
                     self.filteredByTypeAreas[area.type]?.append(area)
                 }
+                counter += 1
             }
             self.delegate.setParkingAreas(with: self.filteredByTypeAreas)
         })
@@ -51,6 +55,10 @@ class EstacionamientosManager {
                 }
             }
         }).resume()
+    }
+    
+    public func destroyListeners() {
+        rootRef.removeAllObservers()
     }
 }
 

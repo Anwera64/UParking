@@ -9,12 +9,13 @@
 import Foundation
 import FirebaseDatabase
 
-class ParkingArea: Codable {
+class ParkingArea {
     var name: String
     var items: [ParkingSpace]
     var type: String
     var imgURLString: String?
     var imgAreaTypeURLString: String?
+    var databaseReference: DatabaseReference?
     
     init(name: String, with items: [ParkingSpace], at area: String, imgURl: String, imgTypeAreaURL: String) {
         self.name = name
@@ -24,7 +25,7 @@ class ParkingArea: Codable {
         self.imgAreaTypeURLString = imgTypeAreaURL
     }
     
-    init?(snapshot: DataSnapshot) {
+    init?(snapshot: DataSnapshot, reference: DatabaseReference) {
         guard
             let value = snapshot.value as? [String: AnyObject],
             let name = value["nombreEspacio"] as? String,
@@ -37,12 +38,15 @@ class ParkingArea: Codable {
         self.name = name
         self.type = type
         self.items = Array()
+        self.databaseReference = reference
         
         let objects = snapshot.childSnapshot(forPath: "spaces").children.allObjects
+        var counter = 0
         for object in objects {
-            if let spaceItem = object as? DataSnapshot, let space = ParkingSpace(snapshot: spaceItem) {
+            if let spaceItem = object as? DataSnapshot, let space = ParkingSpace(snapshot: spaceItem, id: counter) {
                 items.append(space)
             }
+            counter += 1
         }
     }
 }
