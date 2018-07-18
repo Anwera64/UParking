@@ -9,7 +9,7 @@
 import UIKit
 import FirebaseDatabase
 
-class EstacionamientoViewController: UIViewController, ParkingSpaceViewDelegate, EstacionamientoDelegate {
+class EstacionamientoViewController: UIViewController, ParkingSpaceViewDelegate, EstacionamientoDelegate, UITextFieldDelegate {
     
     static let identifier = "EstacionamientoViewController"
     
@@ -34,6 +34,34 @@ class EstacionamientoViewController: UIViewController, ParkingSpaceViewDelegate,
         unusedReservesView.text = "Reservas restantes para esta semana: \(mobileUser.reserves)"
         manager = EstacionamientoManager(objectReference: objectReference, delegate: self)
         manager.getSpaces()
+        let gesture: UIGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(closeKeyboard(_:)))
+        view.addGestureRecognizer(gesture)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
+    
+    @objc
+    func closeKeyboard(_: UIGestureRecognizer? = nil) {
+        invitedDocTextField.resignFirstResponder()
+    }
+    
+    @objc func keyboardWillShow(notification: NSNotification) {
+        if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
+            if self.view.frame.origin.y == 0 {
+                self.view.frame.origin.y -= keyboardSize.height - invitedDocTextField.frame.origin.y + invitedDocTextField.frame.height
+            }
+        }
+    }
+    
+    @objc func keyboardWillHide(notification: NSNotification) {
+        if self.view.frame.origin.y != 0 {
+            self.view.frame.origin.y = 0
+        }
     }
     
     //Al hacer click en el boton de reserva se ejecuta esta funcion.
@@ -63,7 +91,12 @@ class EstacionamientoViewController: UIViewController, ParkingSpaceViewDelegate,
         
         let cleaning = cleaningSwitchView.isOn
         var user: String
-        if invitedSwitchView.isOn, let txt = invitedDocTextField.text {
+        if invitedSwitchView.isOn {
+            guard let txt = invitedDocTextField.text?.trimmed() else {
+                let alert = AlertUtil.simpleAlert(title: "Advertencia", detail: "Tienes que insertar el DNI del invitado en el campo correspondiente.")
+                self.present(alert, animated: true)
+                return
+            }
             user = txt
         } else {
             user = mobileUser.uid!
