@@ -10,6 +10,9 @@ import UIKit
 
 class LoginController: UIViewController, UITextFieldDelegate {
     
+    //Integrantes:
+    // Mendoza, Arce, Soares
+    
     @IBOutlet weak var codeView: UITextField!
     @IBOutlet weak var passwordView: UITextField!
     @IBOutlet weak var loginButton: UIButton!
