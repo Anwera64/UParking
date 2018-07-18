@@ -38,13 +38,13 @@
                                         <rect key="frame" x="0.0" y="67.333333333333371" width="255" height="30"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits" keyboardType="numberPad" textContentType="username"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="numberPad" keyboardAppearance="alert" returnKeyType="next" enablesReturnKeyAutomatically="YES" textContentType="username"/>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Contraseña" textAlignment="center" minimumFontSize="17" clearButtonMode="unlessEditing" translatesAutoresizingMaskIntoConstraints="NO" id="eA1-wf-zrg">
                                         <rect key="frame" x="0.0" y="127.33333333333337" width="255" height="30"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="password"/>
+                                        <textInputTraits key="textInputTraits" keyboardAppearance="alert" returnKeyType="done" enablesReturnKeyAutomatically="YES" secureTextEntry="YES" textContentType="password"/>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Api-FM-cXy">
                                         <rect key="frame" x="0.0" y="187.33333333333337" width="255" height="30"/>
@@ -150,6 +150,15 @@
                                             <action selector="onLogout:" destination="jEn-w6-zC6" eventType="touchUpInside" id="qcP-2Y-ErE"/>
                                         </connections>
                                     </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="P8h-ir-LbM">
+                                        <rect key="frame" x="78" y="546" width="155" height="30"/>
+                                        <state key="normal" title="Comprar mas reservas">
+                                            <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="reservesClick:" destination="jEn-w6-zC6" eventType="touchUpInside" id="Shv-na-noU"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
@@ -159,11 +168,13 @@
                                     <constraint firstItem="Ba9-4C-x3f" firstAttribute="leading" secondItem="ms0-0j-EM4" secondAttribute="leading" constant="32" id="N9R-lp-C8k"/>
                                     <constraint firstItem="3cl-rc-OIB" firstAttribute="top" secondItem="Ba9-4C-x3f" secondAttribute="bottom" constant="32" id="O1F-Uk-4r3"/>
                                     <constraint firstAttribute="bottom" secondItem="wRC-7K-imr" secondAttribute="bottom" constant="32" id="QHV-Bm-PLu"/>
+                                    <constraint firstItem="wRC-7K-imr" firstAttribute="top" secondItem="P8h-ir-LbM" secondAttribute="bottom" constant="32" id="RYk-AW-Sqe"/>
                                     <constraint firstAttribute="trailing" secondItem="Ba9-4C-x3f" secondAttribute="trailing" constant="32" id="VSn-CE-LvF"/>
                                     <constraint firstItem="9NW-sc-v6s" firstAttribute="top" secondItem="3cl-rc-OIB" secondAttribute="bottom" constant="32" id="eAu-36-olE"/>
                                     <constraint firstItem="3cl-rc-OIB" firstAttribute="centerX" secondItem="ms0-0j-EM4" secondAttribute="centerX" id="kwz-Me-sTw"/>
+                                    <constraint firstItem="P8h-ir-LbM" firstAttribute="centerX" secondItem="ms0-0j-EM4" secondAttribute="centerX" id="lg4-e6-o5w"/>
                                     <constraint firstItem="9NW-sc-v6s" firstAttribute="centerY" secondItem="ms0-0j-EM4" secondAttribute="centerY" id="oMd-yQ-Hu9"/>
-                                    <constraint firstItem="wRC-7K-imr" firstAttribute="top" relation="greaterThanOrEqual" secondItem="9NW-sc-v6s" secondAttribute="bottom" constant="32" id="w3t-yH-Hqo"/>
+                                    <constraint firstItem="P8h-ir-LbM" firstAttribute="top" relation="greaterThanOrEqual" secondItem="9NW-sc-v6s" secondAttribute="bottom" constant="32" id="tkl-De-2HT"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -190,7 +201,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2TV-9d-gwA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2500" y="-542.36453201970448"/>
+            <point key="canvasLocation" x="2478" y="-308"/>
         </scene>
         <!--Estacionamientos-->
         <scene sceneID="IDq-w7-RDo">

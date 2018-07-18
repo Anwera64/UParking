@@ -58,6 +58,15 @@ class DataStorageManager {
         }
     }
     
+    public func addMoreReserves() -> Int32 {
+        let user = fetchUser()!
+        context?.performAndWait {
+            user.reserves += 1
+            try! self.context?.save()
+        }
+        return user.reserves
+    }
+    
     public func fetchUser() -> User? {
         let result = fetchUsers()
         

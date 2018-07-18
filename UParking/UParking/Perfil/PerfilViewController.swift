@@ -13,7 +13,7 @@ class PerfilViewController: UIViewController {
     @IBOutlet weak var codeView: UILabel!
     @IBOutlet weak var reservesView: UILabel!
     
-    static public let ID = "PerfilView"
+    static public let identifier = "PerfilView"
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
@@ -29,4 +29,7 @@ class PerfilViewController: UIViewController {
         present(loginController, animated: true)
     }
     
+    @IBAction func reservesClick(_ sender: UIButton) {
+        reservesView.text = String(DataStorageManager().addMoreReserves())
+    }
 }
